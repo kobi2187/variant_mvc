@@ -1,0 +1,24 @@
+
+namespace CommonData
+
+struct Response 
+	is public
+
+	var _why as String
+	var _ok as bool
+	var _err as ErrorType
+	
+	get why from var
+	get ok from var
+	get error from _err
+	
+	cue init(err as ErrorType)
+		.init(err,"")
+	
+	cue init(error as ErrorType, but_why as String)
+		_ok, _err, _why = false, error, but_why
+		
+	def okay as Response is shared
+		res = Response(ErrorType.Uninitialized)
+		res._ok = true
+		return res

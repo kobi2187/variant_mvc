@@ -1,0 +1,38 @@
+use CommonData
+
+namespace VariantMvc
+
+struct ParsedCommand
+	var _cmd as String
+	var _sub as List<of String>
+	var _args as Dictionary<of String,String>
+
+	cue init(cmd as String, sub as List<of String>, args as Dictionary<of String,String>)
+		_cmd, _sub,_args = cmd,sub, args
+		_error = Response.okay
+	
+	cue init(cmd as String, sub as List<of String>)
+		.init(	cmd,
+				sub,
+				Dictionary<of String,String>())
+			
+	cue init(cmd as String)
+		.init(	cmd, 
+				List<of String>())
+	
+	def asError(why as String) as ParsedCommand is shared	
+		res = ParsedCommand("")
+		res.error= Response(ErrorType.Validation, why)
+		return res
+		
+	pro error from var as Response
+	pro command from _cmd
+	pro subCommands from _sub
+	pro arguments from _args
+	
+	get hasArgs as bool
+		return _args.keys.count > 0
+	get hasSubCmds
+		return _sub.count > 0	
+	get isOnlyCmd as bool
+		return not .hasSubCmds and not .hasArgs

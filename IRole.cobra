@@ -2,4 +2,6 @@ namespace VariantMvc
 
 interface IRole
 	get tasked_with as String
+	def checkFeasability # check that the environment allows its operation, for example a logger will check ability to write to disk.
+	
 	

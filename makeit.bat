@@ -1,1 +1,0 @@
-cobra -c -cin -color:yes -copy-core:yes -timeit:yes -d -t:lib -files:build.lst

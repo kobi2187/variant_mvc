@@ -27,9 +27,17 @@
   <ItemGroup>
     <Compile Include="IView.cobra" />
     <Compile Include="IModel.cobra" />
-    <Compile Include="CommonData.cobra" />
     <Compile Include="IRole.cobra" />
     <Compile Include="ParsingUtils.cobra" />
     <Compile Include="IControllerSpec.cobra" />
+    <Compile Include="ParsedCommand.cobra" />
+    <Compile Include="ConsoleUtils.cobra" />
+    <Compile Include="ErrorType.cobra" />
+    <Compile Include="SimpleData.cobra" />
+    <Compile Include="Response.cobra" />
+    <Compile Include="Options.cobra" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="changelog.txt" />
   </ItemGroup>
 </Project>

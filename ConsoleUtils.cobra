@@ -1,0 +1,9 @@
+class ConsoleUtils
+	pass
+
+/#	def readKeysWithDelegate(externalFunction as Func<of String>) is shared
+		pass
+	def readLinesWithDelegate(externalFunction as Func<of String>) is shared
+		pass
+
+	#/	

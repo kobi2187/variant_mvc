@@ -6,4 +6,5 @@ interface IView
 	def setup
 	def redrawAll(drawing_data as Dictionary<of String, SimpleData>) # I want something like screen_part, format
 	def requestUpdate
-	get partsVersions as Dictionary<of String, DateTime> 
+	def notify(note as String)
+	def showErr(err as String)

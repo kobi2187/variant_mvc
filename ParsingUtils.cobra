@@ -1,4 +1,63 @@
+use CommonData
+
 namespace VariantMvc
 
 class Utils
-	pass
+
+	def isValidCommand(cmd as String) as bool is shared #TODO
+		require
+			cmd.length > 0 # not empty
+			# require not cmd_and_args.all(ch => ch is blank) # not entirely blank String.blank ?
+		test
+			assert true
+		body
+			return true
+		
+	def parseCommand(cmd_and_args as String) as ParsedCommand is shared
+	#TODO(kobi): implement with regex, named captures.
+	# use tests to see that I parsed the parts correctly. (a few possible commands-config combinations).
+		require
+			cmd_and_args.length > 0 # not empty
+		# ...	
+		body
+			lower = cmd_and_args.toLower
+			
+			if not .isValidCommand(cmd_and_args)
+				why = "wrong command syntax: ...todo:explain which part"
+				res = ParsedCommand.asError(why)
+				return res
+			else
+				# actual parsing to parts.
+				temp = ParsedCommand("cmd", [ "sub1", "sub2" ], {"setting1":"yes" , "setting2":"224" } )
+				trace temp
+				res = temp
+				return res
+			
+			
+			/#
+			validate entire sentence,
+			get commands section
+				split on <space> and separate cmd from subs.
+			get config section
+				parse each config, add to hashtable.
+				throw exception if key exists. (explain to user, with relevant data)
+			
+			
+			general validation:
+			[a-zA-Z]+($|\s+)([a-zA-Z]+)*($|\s+)?((-[A-Za-z0-9]+:[A-Za-z0-9]+)($|\s+))* (multiline, explicit capture)
+			
+			only if has config, then this is the part before config:
+			[a-zA-Z]+($|\s+)(([a-zA-Z]+)($|\s+))*(?=-[a-z]+:[a-z]+)
+			if doesn't have, then
+			[a-zA-Z]+($|\s+)(([a-zA-Z]+)($|\s+))*
+			would get cmd+subcmds
+			
+			then split by space and you have cmd+subcmds, first should be cmd.
+			after the general validation, we can be sure there is atleast cmd, but assert anyway. (count>0)
+			if there is nothing, return response(validation error).
+			
+			config:
+			-[A-Za-z0-9]+:[A-Za-z0-9]+
+			
+			
+			#/

@@ -1,0 +1,10 @@
+
+struct SimpleData
+	is public
+	
+	get part from var as String # PartsEnum that is converted to String
+	get data from var as Object 
+	
+	cue init(part as String, data as Object)
+		_part, _data = part, data
+	

@@ -1,26 +1,31 @@
-namespace VariantMvc
-
-extend IControllerSpec
-	def performAction(cmd_and_args as String)
-		.beforeAction(cmd_and_args)
-		.customAction(cmd_and_args)
-		.afterAction(cmd_and_args)
-			
-	def checkNotationsMatch(v1 as IView)
-		#todo(kobi): assert here the notation_version's in view vs models - a fail fast for the view to know about a notation update.
-		pass
-			
+use CommonData
 		
 namespace VariantMvc
 
 interface IControllerSpec
-	def beforeAction(cmd_and_args as String)
-	def customAction(cmd_and_args as String)
-	def afterAction(cmd_and_args as String)
+	def beforeAction(cmd_and_args as ParsedCommand)
+	def customAction(cmd_and_args as ParsedCommand) as Response
+	def afterAction(cmd_and_args as ParsedCommand) 
 	
 	def attachView(v1 as IView)
 	def detachView(v1 as IView)	
 	
+	def notifyViews(note as String)
+	def sendErrToViews(err as String)
+	def updateAllViews
 	
+	get roles as List<of IRole>
 	
-	
+
+extend IControllerSpec
+	def performAction(cmd_and_args as ParsedCommand) as Response
+		.beforeAction(cmd_and_args)
+		res = .customAction(cmd_and_args)
+		.afterAction(cmd_and_args)
+		return res
+		
+	def checkRoles
+		for role in .roles, role.checkFeasability
+
+
+
