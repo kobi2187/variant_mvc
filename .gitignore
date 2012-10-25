@@ -17,6 +17,7 @@ TestResults
 *.exe
 *.o
 *.so
+*.pdb
 
 # Packages #
 ############

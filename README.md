@@ -1,18 +1,23 @@
-variant_mvc
+variant_mvc a simple library for .net, written in cobra
 ===========
 
 variant_mvc is (will be) a library to help you organize your code using the mvc pattern.
-In this mvc variant, there is a strict separation and dumb views. 
-views don't see models, models only talk to roles, there is one controller that contains roles objects,
-and the view only talks to the controller. the view is passed as an argument when constructing the controller.
-(but it's possible to attach more views)
-a role is just a sealed object, that manages a certain aspect, meant as a word for the single-responsibility-principle.
-but there is no enforcement of that in the library.
+
+In this mvc variant, there is a strict separation and dumb views. [[BR]]
+- views don't see models, 
+- a view only talks to the controller
+- models only talk to roles, 
+- and there is one controller that contains the roles objects.
+
+the view is passed as an argument when constructing the controller, but it's possible to attach more views.
+a role is just an object of a sealed class, a manager for a certain aspect, meant as a word for the single-responsibility-principle.
+
+there is no enforcement of that in the library.
 you should describe a role with just one line: "tasked with ..."
 if it does too much split it to another ManageSomething class.
 
 models are the domain objects and where the internal rules of a system are defined.
-models should be passive, that is, preferably structs with no methods inside.
+models should be passive, that is, preferably structs with (almost) no methods inside.
 the view is "dumb", and you only teach it how to draw its parts.
 the controller triggers the redraw_all method in the view (which invokes all the draw_part methods).
 however the view can also request to redraw all.

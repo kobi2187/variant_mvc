@@ -1,0 +1,10 @@
+namespace Variant_mvc
+
+interface IView
+	pass
+
+interface IModel
+	pass
+
+interface IController
+	pass  
