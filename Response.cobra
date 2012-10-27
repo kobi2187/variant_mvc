@@ -1,1 +1,8 @@
-
+struct Response
+	var _why as String
+	get why from _why
+	
+	var _ok as bool
+	get ok from _ok
+	# ...
+	# error type?

@@ -30,5 +30,6 @@
     <Compile Include="IModel.cobra" />
     <Compile Include="Controller.cobra" />
     <Compile Include="Response.cobra" />
+    <Compile Include="CommonData.cobra" />
   </ItemGroup>
 </Project>

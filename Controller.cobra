@@ -1,1 +1,32 @@
+use CommonData
 
+class Controller implements IController
+	
+	var _views = List<of IView>()
+	var _opts = Options.Unknown
+	
+	cue init(view as IView, options as Options)
+		base.init		
+		_views.add(view)
+		_opts = options
+	
+	def attachView(v1 as IView)
+		if not _views.contains(v1), _views.add(v1)
+		
+	def detachView(v1 as IView)
+		if _views.contains(v1), _views.remove(v1)
+		
+	
+	
+	def beforeAction(args as String)
+		pass
+		
+	def afterAction(args as String)
+		pass
+		
+	def	customAction(args as String)
+		.decide_action(args)
+		
+	def decide_action(cmd_and_args as String)
+		pass
+	

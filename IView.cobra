@@ -1,3 +1,4 @@
 interface IView
-	pass
-	
+	def setup
+	def redrawAll(dict as Dictionary<of int, String>) # I want something like screen_part, format
+	def requestUpdate
