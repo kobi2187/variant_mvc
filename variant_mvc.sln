@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{0A906CA0-EF87-4D08-9CA7-C8380245B3FF}") = "variant_mvc", "variant_mvc.cobraproj", "{D6721A2D-3687-4C71-9954-FF01516CCDDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6721A2D-3687-4C71-9954-FF01516CCDDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6721A2D-3687-4C71-9954-FF01516CCDDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6721A2D-3687-4C71-9954-FF01516CCDDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6721A2D-3687-4C71-9954-FF01516CCDDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = variant_mvc.cobraproj
+	EndGlobalSection
+EndGlobal

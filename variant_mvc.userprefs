@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller.cobra">
+    <Files>
+      <File FileName="IView.cobra" Line="2" Column="2" />
+      <File FileName="IController.cobra" Line="14" Column="2" />
+      <File FileName="IModel.cobra" Line="3" Column="2" />
+      <File FileName="Controller.cobra" Line="15" Column="1" />
+      <File FileName="Response.cobra" Line="1" Column="16" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

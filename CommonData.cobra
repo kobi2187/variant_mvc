@@ -1,0 +1,9 @@
+namespace CommonData
+
+enum Options
+	has Flags
+	Unknown = 0
+	
+
+	
+
