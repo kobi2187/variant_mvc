@@ -1,4 +1,6 @@
+use CommonData
+
 interface IView
 	def setup
-	def redrawAll(dict as Dictionary<of int, String>) # I want something like screen_part, format
+	def redrawAll(drawing_data as Dictionary<of int, SimpleData>) # I want something like screen_part, format
 	def requestUpdate

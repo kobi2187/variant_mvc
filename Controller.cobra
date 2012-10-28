@@ -5,18 +5,26 @@ class Controller implements IController
 	var _views = List<of IView>()
 	var _opts = Options.Unknown
 	
+	/# should all be independent classes in the generic project
+	var profiler as ManageProfiling
+	var logRecorder as ManageLogReplay
+	var undoRecorder as ManageHistory
+	var resumer as ManagePersistence
+	#/
+	
+	
 	cue init(view as IView, options as Options)
 		base.init		
-		_views.add(view)
 		_opts = options
+		.attachView(view)
 	
 	def attachView(v1 as IView)
+	#todo(kobi): assert here the notation_version's in view vs models - a fail fast for the view to know about a notation update.
 		if not _views.contains(v1), _views.add(v1)
 		
 	def detachView(v1 as IView)
 		if _views.contains(v1), _views.remove(v1)
 		
-	
 	
 	def beforeAction(args as String)
 		pass

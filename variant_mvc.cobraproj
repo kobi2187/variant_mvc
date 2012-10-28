@@ -29,7 +29,8 @@
     <Compile Include="IController.cobra" />
     <Compile Include="IModel.cobra" />
     <Compile Include="Controller.cobra" />
-    <Compile Include="Response.cobra" />
     <Compile Include="CommonData.cobra" />
+    <Compile Include="IRole.cobra" />
+    <Compile Include="ParsingUtils.cobra" />
   </ItemGroup>
 </Project>
