@@ -17,7 +17,7 @@ enum ErrorType
 		An error enum, to be used in the Response struct
 		very minimal right now, not sure it's a good idea - same as error codes
 	"""
-	Uninitialized = 0
+	Uninitialized
 	Parse
 	Validation
 	IO
