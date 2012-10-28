@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller.cobra">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CommonData.cobra">
     <Files>
-      <File FileName="IView.cobra" Line="2" Column="2" />
-      <File FileName="IController.cobra" Line="14" Column="2" />
-      <File FileName="IModel.cobra" Line="3" Column="2" />
-      <File FileName="Controller.cobra" Line="15" Column="1" />
-      <File FileName="Response.cobra" Line="1" Column="16" />
+      <File FileName="IView.cobra" Line="4" Column="19" />
+      <File FileName="IController.cobra" Line="16" Column="2" />
+      <File FileName="IModel.cobra" Line="2" Column="7" />
+      <File FileName="Controller.cobra" Line="2" Column="1" />
+      <File FileName="Response.cobra" Line="8" Column="15" />
+      <File FileName="CommonData.cobra" Line="7" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
