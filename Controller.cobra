@@ -1,4 +1,4 @@
-#todo(kobi): consider moving to generic_project, or changing the (future) mixins to simple classes.
+#todo(kobi): consider moving Controller to generic_project, or changing the (future) mixins to simple classes.
 
 use CommonData
 use GenericProject
