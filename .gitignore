@@ -9,6 +9,10 @@ TestResults
 *.*~
 
 
+# mono develop internal files
+*.usertasks
+*.userprefs
+
 # Compiled source #
 ###################
 *.com
