@@ -1,3 +1,5 @@
+namespace VariantMvc
+
 interface IRole
 	get tasked_with as String
 	

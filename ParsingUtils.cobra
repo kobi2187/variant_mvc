@@ -1,2 +1,4 @@
+namespace VariantMvc
+
 class Utils
 	pass

@@ -1,11 +1,13 @@
-extend IController
+namespace VariantMvc
+
+extend IControllerSpec
 	def performAction(cmd_and_args as String)
 		.beforeAction(cmd_and_args)
 		.customAction(cmd_and_args)
 		.afterAction(cmd_and_args)
 		
 		
-interface IController
+interface IControllerSpec
 	def beforeAction(cmd_and_args as String)
 	def customAction(cmd_and_args as String)
 	def afterAction(cmd_and_args as String)

@@ -1,4 +1,6 @@
 use CommonData
 
+namespace VariantMvc
+
 interface IModel
 	def makeSimplifiedData as SimpleData

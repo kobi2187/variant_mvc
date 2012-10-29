@@ -1,16 +1,22 @@
-use CommonData
+#todo(kobi): consider moving to generic_project, or changing the (future) mixins to simple classes.
 
-class Controller implements IController
+use CommonData
+use GenericProject
+
+
+namespace VariantMvc
+
+class Controller implements IControllerSpec
 	
 	var _views = List<of IView>()
 	var _opts = Options.Unknown
 	
-	/# should all be independent classes in the generic project
-	var profiler as ManageProfiling
-	var logRecorder as ManageLogReplay
-	var undoRecorder as ManageHistory
-	var resumer as ManagePersistence
-	#/
+
+	var _profiler as ManageProfiling
+	var _logRecorder as ManageLogReplay
+	var _undoRecorder as ManageHistory
+	var _resumer as ManagePersistence
+
 	
 	
 	cue init(view as IView, options as Options)

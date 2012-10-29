@@ -1,5 +1,7 @@
 use CommonData
 
+namespace VariantMvc
+
 interface IView
 	def setup
 	def redrawAll(drawing_data as Dictionary<of int, SimpleData>) # I want something like screen_part, format

@@ -26,11 +26,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IView.cobra" />
-    <Compile Include="IController.cobra" />
     <Compile Include="IModel.cobra" />
     <Compile Include="Controller.cobra" />
     <Compile Include="CommonData.cobra" />
     <Compile Include="IRole.cobra" />
     <Compile Include="ParsingUtils.cobra" />
+    <Compile Include="IControllerSpec.cobra" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\generic_project\generic_project.cobraproj">
+      <Project>{B2B38FE2-C4CB-48F9-B14B-40543B0B7D5A}</Project>
+      <Name>generic_project</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -3,12 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{0A906CA0-EF87-4D08-9CA7-C8380245B3FF}") = "variant_mvc", "variant_mvc.cobraproj", "{D6721A2D-3687-4C71-9954-FF01516CCDDE}"
 EndProject
+Project("{0A906CA0-EF87-4D08-9CA7-C8380245B3FF}") = "console_tester", "console_tester\console_tester.cobraproj", "{C6978CAD-0A0B-47D0-AED9-51C66696DB3C}"
+EndProject
+Project("{0A906CA0-EF87-4D08-9CA7-C8380245B3FF}") = "generic_project", "..\generic_project\generic_project.cobraproj", "{B2B38FE2-C4CB-48F9-B14B-40543B0B7D5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2B38FE2-C4CB-48F9-B14B-40543B0B7D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2B38FE2-C4CB-48F9-B14B-40543B0B7D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2B38FE2-C4CB-48F9-B14B-40543B0B7D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2B38FE2-C4CB-48F9-B14B-40543B0B7D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6978CAD-0A0B-47D0-AED9-51C66696DB3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6978CAD-0A0B-47D0-AED9-51C66696DB3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6978CAD-0A0B-47D0-AED9-51C66696DB3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6978CAD-0A0B-47D0-AED9-51C66696DB3C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D6721A2D-3687-4C71-9954-FF01516CCDDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D6721A2D-3687-4C71-9954-FF01516CCDDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6721A2D-3687-4C71-9954-FF01516CCDDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
