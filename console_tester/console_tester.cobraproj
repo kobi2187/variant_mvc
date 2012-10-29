@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6978CAD-0A0B-47D0-AED9-51C66696DB3C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>console_tester</RootNamespace>
+    <UsePartialTypes>False</UsePartialTypes>
+    <AssemblyName>console_tester</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <OutputPath>bin\Debug</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <Externalconsole>True</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <Externalconsole>True</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ConsoleView.cobra" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\variant_mvc.cobraproj">
+      <Project>{D6721A2D-3687-4C71-9954-FF01516CCDDE}</Project>
+      <Name>variant_mvc</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

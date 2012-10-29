@@ -1,0 +1,27 @@
+"""
+ConsoleView is a view, that uses the (command line) Console to display.
+It is here mainly to test the Controller and experiment with features and interaction as I go along.
+"""
+
+use VariantMvc
+use CommonData
+
+class ConsoleView implements IView
+
+	def main
+		print 'Hello, world!'
+
+	################################
+	# IView interface impl.      ###
+	
+	def setup
+		pass
+	
+	def redrawAll(dict as Dictionary<of int, SimpleData>)
+		pass
+	
+	def requestUpdate
+		pass
+		
+	# end of IView interface impl. #
+	################################	
