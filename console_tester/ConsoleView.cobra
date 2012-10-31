@@ -6,10 +6,16 @@ It is here mainly to test the Controller and experiment with features and intera
 use VariantMvc
 use CommonData
 
-class ConsoleView implements IView
+class Program
 
 	def main
 		print 'Hello, world!'
+	
+	
+class ConsoleView implements IView
+
+	## instance variables ##
+	var _partsVersions as Dictionary<of String, DateTime> #todo(kobi): implement
 
 	################################
 	# IView interface impl.      ###
@@ -17,11 +23,16 @@ class ConsoleView implements IView
 	def setup
 		pass
 	
-	def redrawAll(dict as Dictionary<of int, SimpleData>)
+	def redrawAll(dict as Dictionary<of String, SimpleData>)
 		pass
 	
 	def requestUpdate
 		pass
+
+	get parsingVersions from _partsVersions
 		
 	# end of IView interface impl. #
 	################################	
+	
+	#### helpers ####
+	
