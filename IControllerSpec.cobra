@@ -5,16 +5,21 @@ extend IControllerSpec
 		.beforeAction(cmd_and_args)
 		.customAction(cmd_and_args)
 		.afterAction(cmd_and_args)
+			
+	def checkNotationsMatch(v1 as IView)
+		#todo(kobi): assert here the notation_version's in view vs models - a fail fast for the view to know about a notation update.
+		pass
+			
 		
-		
+namespace VariantMvc
+
 interface IControllerSpec
 	def beforeAction(cmd_and_args as String)
 	def customAction(cmd_and_args as String)
 	def afterAction(cmd_and_args as String)
 	
 	def attachView(v1 as IView)
-	def detachView(v1 as IView)
-	
+	def detachView(v1 as IView)	
 	
 	
 	

@@ -27,6 +27,6 @@ Global
 		{D6721A2D-3687-4C71-9954-FF01516CCDDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = variant_mvc.cobraproj
+		StartupItem = console_tester\console_tester.cobraproj
 	EndGlobalSection
 EndGlobal

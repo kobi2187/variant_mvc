@@ -29,7 +29,7 @@ class ConsoleView implements IView
 	def requestUpdate
 		pass
 
-	get parsingVersions from _partsVersions
+	get partsVersions from _partsVersions
 		
 	# end of IView interface impl. #
 	################################	
