@@ -36,6 +36,7 @@
     <Compile Include="SimpleData.cobra" />
     <Compile Include="Response.cobra" />
     <Compile Include="Options.cobra" />
+    <Compile Include="IController.cobra" />
   </ItemGroup>
   <ItemGroup>
     <None Include="changelog.txt" />

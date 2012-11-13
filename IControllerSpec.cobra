@@ -7,6 +7,8 @@ interface IControllerSpec
 	def customAction(cmd_and_args as ParsedCommand) as Response
 	def afterAction(cmd_and_args as ParsedCommand) 
 	
+	
+	
 	def attachView(v1 as IView)
 	def detachView(v1 as IView)	
 	
@@ -18,12 +20,7 @@ interface IControllerSpec
 	
 
 extend IControllerSpec
-	def performAction(cmd_and_args as ParsedCommand) as Response
-		.beforeAction(cmd_and_args)
-		res = .customAction(cmd_and_args)
-		.afterAction(cmd_and_args)
-		return res
-		
+
 	def checkRoles
 		for role in .roles, role.checkFeasability
 

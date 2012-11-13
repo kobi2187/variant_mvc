@@ -1,17 +1,25 @@
 use CommonData
+use System.Text.RegularExpressions
 
 namespace VariantMvc
 
 class Utils
 
+# how to set a constant in cobra? or readonly
+	shared 
+		var command = r'(?\'command\'[a-zA-Z]+($|\s+))' 
+		var subCommands = r'(?\'subs\'(([a-zA-Z]+)($|\s+))*)' 
+		var config = r'(\'configs\'((-[A-Za-z0-9]+:[A-Za-z0-9]+)($|\s+))*)' 
+		var fullcmd = .command + .subCommands + .config
+
 	def isValidCommand(cmd as String) as bool is shared #TODO
 		require
 			cmd.length > 0 # not empty
-			# require not cmd_and_args.all(ch => ch is blank) # not entirely blank String.blank ?
-		test
-			assert true
+			not String.isNullOrWhiteSpace(cmd)
 		body
-			return true
+			regex = Regex(.fullcmd)
+			res = regex.isMatch(cmd)
+			return res 
 		
 	def parseCommand(cmd_and_args as String) as ParsedCommand is shared
 	#TODO(kobi): implement with regex, named captures.

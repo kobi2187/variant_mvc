@@ -1,0 +1,38 @@
+from: Prevalent System, Ovidiu, I Tudosa 2009-12-06
+
+Determinism: A very important aspect of implementing the updates is that all the interactions
+with the system must be completely deterministic, including any business object code called in-
+directly by a transaction with the prevalent system. A transaction must always have exactly the
+same effect on the business objects whether it is being executed the first time or executed again
+later during recovery. In practice this would mean avoiding system calls that return different values
+every time the transaction is run and rather going via a version overridden by the prevalent system.
+Furthermore, accessing any files or sockets should be avoided because hardware I/O is inherently
+nondeterministic. <<<Instead the I/O should be performed outside of the prevalent system and the
+data passed to the master copy via commands.>>>
+
+(this way the log can have the exact same data, and the IO operation will not happen again.)
+
+something like: if success, ctrl.SendDataFromIO(data: byte[] ..., whichio:"http-download", other-args: string[ url, ...])
+(where to save the byte array?) obviously not in the single line. can save as a binary file, with the filename replacing the data.
+
+another point: as an enhancement (if time permits) have a replica with a command queue.
+all commands are copied to the replica's command queue.
+when taking a replica snapshot, we stop popping from the replica-queue.
+after finishing, a new log is created (different filename) and all the commands in the queue
+are each applied to the state and logged.
+
+hmmm... do we need locking? does it have to be serial? does order really matters? (if so, performAction method in controller is the only entry point .. however how slow will be such a "global" lock?)
+okay - comparing to a database, every command string is actually a transaction, (which is appended to a logfile, and performed)
+so locking (lock keyword) -- if needed -- will be locally for modifications of a specific structure. (read about thread safety)
+think of a game, whereby every movement is followed by screen redrawing.
+I might need a priority queue to feed performAction. and a sorted time list, to see if threshold has passed - take that cmd.
+this is all overarchitecting! if has to be serial put a global lock. if not performant enough, do above or think of ways to fix it.
+
+
+another point: I thought of adding a cost calculation function supplied by the user, that returns a number for each command
+and then, when the sum reaches a threshold, a state snapshot occurs, and the sum is zeroed.
+
+this is mainly for undo/redo. if there are too many cmds since last snapshot, every undo will take a long(?) time (backing to last state, and redoing - 1)
+an alternative is to time every command, so there is no need for a cost function, we already know it.
+the threshold can also be in a timeunit, so it's much clearer to the developer how responsive it is. (how long do you agree to wait for an undo?)
+saving the state to a file does not hit responsiveness since it's done by a replica.

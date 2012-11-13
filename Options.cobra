@@ -4,9 +4,9 @@ namespace CommonData
 enum Options
 	is public has Flags
 	"""Options for controller's operation, mix and match with '|' as these are flags"""
-	Unknown 	 = 0
-	ReplayLog	 = 1
-	UndoRedo     = 2
-	Profile		 = 4
-	Persistence	 = 8
+	None = 0
+	ReplayLog = 1
+	UndoRedo = 2
+	Profile = 4
+	Persistence = 8
 	
