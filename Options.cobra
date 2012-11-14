@@ -1,6 +1,12 @@
 
 namespace CommonData
 
+extend Options
+    def hasFlag(e as Enum) as bool
+        numparam = e.getValue
+        res = this.getValue & numparam == numparam
+        return res
+
 enum Options
 	is public has Flags
 	"""Options for controller's operation, mix and match with '|' as these are flags"""
