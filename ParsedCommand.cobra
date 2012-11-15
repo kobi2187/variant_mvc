@@ -10,6 +10,7 @@ struct ParsedCommand
 	cue init(cmd as String, sub as List<of String>, args as Dictionary<of String,String>)
 		_cmd, _sub,_args = cmd,sub, args
 		_error = Response.okay
+		_id = Guid.newGuid
 	
 	cue init(cmd as String, sub as List<of String>)
 		.init(	cmd,
@@ -29,6 +30,7 @@ struct ParsedCommand
 	pro command from _cmd
 	pro subCommands from _sub
 	pro arguments from _args
+	get id from var as Guid 
 	
 	get hasArgs as bool
 		return _args.keys.count > 0
