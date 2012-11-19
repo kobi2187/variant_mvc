@@ -30,7 +30,7 @@ class Utils
 		body
 			lower = cmd_and_args.toLower
 			
-			if not .isValidCommand(cmd_and_args)
+			if not .isValidCommand(lower)
 				why = "wrong command syntax: ...todo:explain which part"
 				res = ParsedCommand.asError(why)
 				return res

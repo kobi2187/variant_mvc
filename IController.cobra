@@ -1,20 +1,9 @@
 use VariantMvc
 use CommonData
 
-extend IController
-	def performAction(cmd as String) as Response
-		assert this implements IControllerSpec
-		assert Utils.isValidCommand(cmd)
-		
-		ctrl = this to IControllerSpec
-		parsed = Utils.parseCommand(cmd)
-		lock this
-			ctrl.beforeAction(parsed)
-			res = ctrl.customAction(parsed)
-			ctrl.afterAction(parsed)
-			return res
-
-
 interface IController
+	"""api for view"""
 	def requestReload
-	def requestPartialReload(part as String)
+	def requestPartReload(part as String)
+	def load
+	def performAction(cmd as String) as Response

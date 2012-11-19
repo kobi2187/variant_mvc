@@ -7,22 +7,16 @@ interface IControllerSpec
 	def customAction(cmd_and_args as ParsedCommand) as Response
 	def afterAction(cmd_and_args as ParsedCommand) 
 	
-	
-	
 	def attachView(v1 as IView)
-	def detachView(v1 as IView)	
+	def detachView(v1 as IView)
 	
 	def notifyViews(note as String)
-	def sendErrToViews(err as String)
-	def updateAllViews
+	def sendErrToViews(err as Response)
+	def updateViews
 	
 	get roles as List<of IRole>
 	
 
-extend IControllerSpec
-
-	def checkRoles
-		for role in .roles, role.checkFeasability
 
 
 

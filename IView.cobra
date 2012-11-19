@@ -3,8 +3,10 @@ use CommonData
 namespace VariantMvc
 
 interface IView
-	def setup
+	def setupUi
 	def redrawAll(drawing_data as Dictionary<of String, SimpleData>) # I want something like screen_part, format
 	def requestUpdate
 	def notify(note as String)
-	def showErr(err as String)
+	def start
+	def showErr(resp as Response)
+    def doExit

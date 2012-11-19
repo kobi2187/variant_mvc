@@ -10,3 +10,6 @@ enum ErrorType
 	Parse
 	Validation
 	IO
+	UnknownCommand
+	UnknownSubCommand
+	UnknownConfigKeys
