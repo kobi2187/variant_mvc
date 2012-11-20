@@ -2,20 +2,23 @@ use CommonData
 		
 namespace VariantMvc
 
-interface IControllerSpec
+interface IControllerSpec<of TEnumParts>
 	def beforeAction(cmd_and_args as ParsedCommand)
 	def customAction(cmd_and_args as ParsedCommand) as Response
 	def afterAction(cmd_and_args as ParsedCommand) 
 	
-	def attachView(v1 as IView)
-	def detachView(v1 as IView)
+	def attachView(v1 as IView<of TEnumParts>)
+	def detachView(v1 as IView<of TEnumParts>)
+	
+	get roles as List<of IRole>
 	
 	def notifyViews(note as String)
 	def sendErrToViews(err as Response)
 	def updateViews
+	def updateViewsPart(data as SimpleData<of TEnumParts>)
+	def getDataForPart(part as TEnumParts) as SimpleData<of TEnumParts>
 	
-	get roles as List<of IRole>
-	
+	def doSaveState
 
 
 

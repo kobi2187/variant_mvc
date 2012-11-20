@@ -1,9 +1,9 @@
 use VariantMvc
 use CommonData
 
-interface IController
+interface IController<of TEnumParts>
 	"""api for view"""
 	def requestReload
-	def requestPartReload(part as String)
+	def requestPartReload(part as TEnumParts)
 	def load
 	def performAction(cmd as String) as Response

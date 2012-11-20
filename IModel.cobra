@@ -2,5 +2,5 @@ use CommonData
 
 namespace VariantMvc
 
-interface IModel
-	def makeSimplifiedData as SimpleData
+interface IModel<of TEnumParts>
+	def makeSimplifiedData as SimpleData<of TEnumParts>

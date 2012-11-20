@@ -2,9 +2,10 @@ use CommonData
 
 namespace VariantMvc
 
-interface IView
+interface IView<of TEnumParts>
 	def setupUi
-	def redrawAll(drawing_data as Dictionary<of String, SimpleData>) # I want something like screen_part, format
+	#def redrawAll(drawing_data as Dictionary<of String, SimpleData>) # I want something like screen_part, format
+	def redrawPart(data as SimpleData<of TEnumParts>)
 	def requestUpdate
 	def notify(note as String)
 	def start
