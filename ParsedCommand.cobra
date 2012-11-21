@@ -30,6 +30,7 @@ struct ParsedCommand
 	pro command from _cmd
 	pro subCommands from _sub
 	pro arguments from _args
+	
 	get id from var as Guid 
 	
 	get hasArgs as bool

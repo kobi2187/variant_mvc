@@ -7,65 +7,78 @@ class Utils
 
 # how to set a constant in cobra? or readonly
 	shared 
-		var command = r'(?\'command\'[a-zA-Z]+($|\s+))' 
+		/#var command = r'(?\'command\'[a-zA-Z]+($|\s+))' 
 		var subCommands = r'(?\'subs\'(([a-zA-Z]+)($|\s+))*)' 
 		var config = r'(\'configs\'((-[A-Za-z0-9]+:[A-Za-z0-9]+)($|\s+))*)' 
-		var fullcmd = .command + .subCommands + .config
+		var fullcmd = .command + .subCommands + .config#/
+		var fullregex = r"^(?'command'[a-zA-Z]+($|\s+)){1,1}(?'subs'(([a-zA-Z]+)($|\s+))*)(?'configs'(-[A-Za-z0-9]+:[A-Za-z0-9]+($|\s+))*)$"
 
 	def isValidCommand(cmd as String) as bool is shared #TODO
 		require
 			cmd.length > 0 # not empty
 			not String.isNullOrWhiteSpace(cmd)
 		body
-			regex = Regex(.fullcmd)
+			regex = Regex(.fullregex)
 			res = regex.isMatch(cmd)
 			return res 
 		
 	def parseCommand(cmd_and_args as String) as ParsedCommand is shared
-	#TODO(kobi): implement with regex, named captures.
 	# use tests to see that I parsed the parts correctly. (a few possible commands-config combinations).
+	#TODO(kobi): implement with regex, named captures.
+		
 		require
 			cmd_and_args.length > 0 # not empty
-		# ...	
-		body
-			lower = cmd_and_args.toLower
+		test
+			ex1 = .parseCommand("exit") # just cmd
+			assert ex1.command == "exit"
 			
+			ex2 = .parseCommand("app about") # cmd sub
+			assert ex2.command == "app"
+			assert ex2.subCommands == [ "about" ]
+			
+			ex3 = .parseCommand("init -start:quiet") # cmd config
+			assert ex3.command == "init"
+			assert ex3.arguments == { "start":"quiet"}
+			
+			ex4 = .parseCommand("convert audio for sure -input:mp3 -output:wav -bitrate:224") # cmd sub1 sub2 sub3 configs
+			assert ex4.command == "convert"
+			assert ex4.subCommands == [ "audio", "for", "sure" ]
+			assert ex4.arguments == { "input":"mp3" , "output":"wav", "bitrate":"224"}
+			
+		body
+			lower = cmd_and_args.toLower			
+			cmd = ""
+			subs = List<of String>()
+			configDict = Dictionary<of String,String>()
+						
 			if not .isValidCommand(lower)
-				why = "wrong command syntax: ...todo:explain which part"
+				why = "validation failed."
 				res = ParsedCommand.asError(why)
 				return res
 			else
-				# actual parsing to parts.
-				temp = ParsedCommand("cmd", [ "sub1", "sub2" ], {"setting1":"yes" , "setting2":"224" } )
-				trace temp
-				res = temp
+			# start parsing: gets the regex groups.
+				cmdregex = Regex(.fullregex)
+				matches = cmdregex.matches(lower)
+				assert matches.count == 1
+				found = matches[0]
+				cmd = found.groups['command'].value.trim
+				
+				subsStr = found.groups['subs'].value.trim
+				if subsStr.length > 0
+					subs = subsStr.split(c' ').toList				
+				
+				configsStr = found.groups['configs'].value.trim
+				if configsStr.length > 0
+					configs = configsStr.split(c' ')
+					trace configs
+					for cfg in configs
+						pair = cfg.split(c':')
+						trace pair
+						assert pair.length==2
+						key, val = pair[0].trim(c'-'), pair[1]
+						configDict.add(key,val)
+						trace configDict
+				
+				res = ParsedCommand(cmd, subs, configDict)
+				trace res
 				return res
-			
-			
-			/#
-			validate entire sentence,
-			get commands section
-				split on <space> and separate cmd from subs.
-			get config section
-				parse each config, add to hashtable.
-				throw exception if key exists. (explain to user, with relevant data)
-			
-			
-			general validation:
-			[a-zA-Z]+($|\s+)([a-zA-Z]+)*($|\s+)?((-[A-Za-z0-9]+:[A-Za-z0-9]+)($|\s+))* (multiline, explicit capture)
-			
-			only if has config, then this is the part before config:
-			[a-zA-Z]+($|\s+)(([a-zA-Z]+)($|\s+))*(?=-[a-z]+:[a-z]+)
-			if doesn't have, then
-			[a-zA-Z]+($|\s+)(([a-zA-Z]+)($|\s+))*
-			would get cmd+subcmds
-			
-			then split by space and you have cmd+subcmds, first should be cmd.
-			after the general validation, we can be sure there is atleast cmd, but assert anyway. (count>0)
-			if there is nothing, return response(validation error).
-			
-			config:
-			-[A-Za-z0-9]+:[A-Za-z0-9]+
-			
-			
-			#/
